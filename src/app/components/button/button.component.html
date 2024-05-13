@@ -1,0 +1,5 @@
+<button type="app-button" class="btn btn-warning mx-1" (click)="greet()"><b>{{label1}}</b></button>
+<button type="app-button" class="btn btn-outline-success mx-1" (click)="click()"><b>{{label2}}</b></button>
+<button type="app-button" class="btn btn-outline-primary mx-1" [disabled]="counter === 0" (click)="click()"><b>{{label3}}</b></button>
+
+<p class="my-3">Current State: {{counter}}</p>
