@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class SandboxComponent {
 
+  title = 'internship-angular-test-2024';
+
   counter = 0;
   increase() {
     this.counter++;

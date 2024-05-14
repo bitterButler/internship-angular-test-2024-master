@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button', 
@@ -10,32 +9,22 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() label1 ="Let him cook!"; //if i dont give a value for the label in:  <app-button label="Click me">, then this "you clicked me" will be displayed.
-  @Input() label2 = ""; //define an Input property on the UserComponent called name.
+  @Input() label2 = ""; //define an Input property on the ButtonComponent called label(buttontext).
   @Input() label3 = "";
+  @Input() counter = 0; 
 
   greet() {
     alert("Trying to understand Angular. This is my first time :)");
   }
 
-  @Output() CountingHandler = new EventEmitter<number>();
-  click()
-  {
-    this.CountingHandler.emit();
+  @Output() increaseHandler = new EventEmitter<void>(); //define event handler for Increaser
+  @Output() decreaseHandler = new EventEmitter<void>(); //define event handler for Decreaser
+  
+  increase() {
+    this.increaseHandler.emit();
   }
 
-  //ha ujra aktivalom, akk szamolas mukodni fog.
-  //counter = 0;
-  //increase() {
-  //  this.counter++;
-  //}
-  //
-  //decrease() {
-  //  if (this.counter > 0) {
-  //    this.counter--;
-  //    //console.log(this.counter); //only for checking in inspect-> console.
-  //    if (this.counter === 0) { 
-  //      alert("Counter is 0! Unable to decrease more.");
-  //    }
-  //  }
-  //}
+  decrease() {
+    this.decreaseHandler.emit();
+  }
 }
